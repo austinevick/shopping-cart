@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Shopping Cart',
         theme: ThemeData.dark(),
-        home: H(),
+        home: HomeScreen(),
       ),
     );
   }
@@ -68,9 +68,7 @@ class _HState extends State<H> with SingleTickerProviderStateMixin {
                         child: ListTile(
                           tileColor: Colors.red,
                           title: Text('Item $index'),
-                          onTap: () {
-                            animation!.value.translate(-1.0, 0.0);
-                          },
+                          onTap: () {},
                         ),
                       ),
                     ))));
