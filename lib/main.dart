@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shoppy/constant.dart';
-import 'package:shoppy/screen/home_screen.dart';
+import 'package:shoppy/screen/auth_state_change_screen.dart';
 import 'package:video_player/video_player.dart';
 
 void main() {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Shopping Cart',
         theme: ThemeData.dark(),
-        home: HomeScreen(),
+        home: const AuthStateChangeScreen(),
       ),
     );
   }

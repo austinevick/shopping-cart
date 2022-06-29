@@ -29,7 +29,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
     try {
       setState(() => isLoading = true);
       await Future.delayed(
-          const Duration(seconds: 3),
+          const Duration(seconds: 5),
           (() => ref.read(productProvider).addProductToCart(ProductModel(
               name: widget.item!.name,
               id: widget.item!.id,

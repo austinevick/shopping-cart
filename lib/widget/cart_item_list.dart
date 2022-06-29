@@ -24,7 +24,7 @@ class _CartItemListState extends State<CartItemList> {
     try {
       setState(() => isLoading = true);
       await Future.delayed(
-          const Duration(seconds: 3),
+          const Duration(seconds: 5),
           (() => ref.read(productProvider).removeProductFromCart(
                 widget.model!,
               )));

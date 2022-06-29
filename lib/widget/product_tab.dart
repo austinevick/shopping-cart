@@ -33,7 +33,7 @@ class _ProductTabState extends State<ProductTab> {
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
       return SafeArea(
-          minimum: const EdgeInsets.all(16.0),
+          minimum: const EdgeInsets.symmetric(horizontal: 16.0),
           child: ref.watch(productFutureProvider).when(
               data: (items) => Column(
                     children: [
@@ -99,9 +99,9 @@ class _ProductTabState extends State<ProductTab> {
       case 2:
         return ProductList(item: p.fruits(i));
       case 3:
-        return ProductList(item: p.pizza(i));
-      case 4:
         return ProductList(item: p.laptop(i));
+      case 4:
+        return ProductList(item: p.pizza(i));
       case 5:
         return ProductList(item: p.shoe(i));
       case 6:

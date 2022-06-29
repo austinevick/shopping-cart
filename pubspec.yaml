@@ -17,6 +17,9 @@ dependencies:
   modal_bottom_sheet: null
   video_player: null
   shared_preferences: null
+  firebase_core:
+  cloud_firestore:
+  firebase_auth:
   
 
 dev_dependencies:

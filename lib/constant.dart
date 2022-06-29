@@ -7,6 +7,13 @@ const noConnection = 'No Internet Connection';
 const somethingWentWrong = 'Something went wrong';
 const unknownError = 'Unknown Error';
 
+//const primaryColor = Color(0xff1f164b);
+const lightGreen = Color(0xff47E690);
+const boldTextColor = Color(0xff052715);
+ShapeBorder textFieldDecoration = OutlineInputBorder(
+    borderRadius: BorderRadius.circular(8),
+    borderSide: const BorderSide(color: lightGreen, width: 1.8));
+
 const bottomSheetDecoration = OutlineInputBorder(
     borderSide: BorderSide.none,
     borderRadius: BorderRadius.only(
