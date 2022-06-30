@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shoppy/model/product_model.dart';
+import 'package:shoppy/services/firestore_service.dart';
 
 import '../provider/product_provider.dart';
 import 'product_list.dart';
@@ -47,7 +48,7 @@ class _ProductTabState extends State<ProductTab> {
                             children: List.generate(
                               tabs.length,
                               (i) => GestureDetector(
-                                onTap: () {
+                                onTap: () async {
                                   setState(() => currentIndex = i);
                                 },
                                 child: AnimatedContainer(

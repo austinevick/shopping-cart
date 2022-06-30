@@ -20,6 +20,10 @@ dependencies:
   firebase_core:
   cloud_firestore:
   firebase_auth:
+  image_picker:
+  firebase_storage:
+  image_cropper:
+  path:
   
 
 dev_dependencies:

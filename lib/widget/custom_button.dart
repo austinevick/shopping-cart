@@ -10,6 +10,7 @@ class CustomButton extends StatelessWidget {
   final double? width;
   final double? height;
   final Color? textColor;
+  final double? padding;
 
   final BorderSide? borderSide;
   const CustomButton(
@@ -19,6 +20,7 @@ class CustomButton extends StatelessWidget {
       this.text,
       this.color,
       this.child,
+      this.padding,
       this.width = double.infinity,
       this.height,
       this.borderSide})
@@ -27,7 +29,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: EdgeInsets.all(padding ?? 8),
       child: SizedBox(
         height: height ?? 60,
         width: width,
@@ -35,7 +37,7 @@ class CustomButton extends StatelessWidget {
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: color ?? primaryColor),
-          duration: const Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 800),
           child: MaterialButton(
             onPressed: onPressed,
             child: child ??

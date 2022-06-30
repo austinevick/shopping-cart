@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const style = TextStyle();
@@ -7,12 +6,11 @@ const noConnection = 'No Internet Connection';
 const somethingWentWrong = 'Something went wrong';
 const unknownError = 'Unknown Error';
 
-//const primaryColor = Color(0xff1f164b);
 const lightGreen = Color(0xff47E690);
 const boldTextColor = Color(0xff052715);
 ShapeBorder textFieldDecoration = OutlineInputBorder(
     borderRadius: BorderRadius.circular(8),
-    borderSide: const BorderSide(color: lightGreen, width: 1.8));
+    borderSide: const BorderSide(color: primaryColor, width: 1.8));
 
 const bottomSheetDecoration = OutlineInputBorder(
     borderSide: BorderSide.none,

@@ -1,8 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:shoppy/constant.dart';
+import 'package:shoppy/services/firestore_service.dart';
 
-class Userdrawer extends StatelessWidget {
+import '../services/authentication_service.dart';
+
+class Userdrawer extends StatefulWidget {
   const Userdrawer({Key? key}) : super(key: key);
+
+  @override
+  State<Userdrawer> createState() => _UserdrawerState();
+}
+
+class _UserdrawerState extends State<Userdrawer> {
+  final auth = AuthenticationService();
+  final user = FirestoreService();
+  String name = '';
+  String email = '';
+  Future<void> initUserData() async {
+    final data = await user.getUserInfo();
+    setState(() => name = data.fullname!);
+    setState(() => email = data.email!);
+  }
+
+  @override
+  void initState() {
+    initUserData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +39,11 @@ class Userdrawer extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          'Kenneth Kolawole',
-          style: style.copyWith(
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-          ),
+          name,
+          style: style.copyWith(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         Text(
-          'kenneth@gmail.com',
+          email,
           style: style.copyWith(
             fontWeight: FontWeight.bold,
             color: Colors.grey,

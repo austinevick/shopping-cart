@@ -66,7 +66,7 @@ class CustomTextfield extends StatelessWidget {
         textAlign: textAlign ?? TextAlign.start,
         onChanged: onChanged,
         autofocus: autoFocus!,
-        cursorColor: Colors.black,
+        cursorColor: Colors.white,
         keyboardType: keyboardType,
         focusNode: focusNode,
         onEditingComplete: onEditingComplete,
@@ -89,7 +89,7 @@ class CustomTextfield extends StatelessWidget {
               borderSide:
                   !hasBorderside! ? BorderSide.none : const BorderSide(),
               borderRadius: BorderRadius.circular(8)),
-          fillColor: fillColor,
+          fillColor: Colors.black54,
           filled: true,
           hintText: hintText,
         ),
