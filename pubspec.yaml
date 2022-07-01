@@ -24,6 +24,7 @@ dependencies:
   firebase_storage:
   image_cropper:
   path:
+  firebase_app_check: ^0.0.6+16
   
 
 dev_dependencies:

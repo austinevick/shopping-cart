@@ -12,7 +12,6 @@ class CustomDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: Colors.white,
       shape: OutlineInputBorder(
           borderRadius: BorderRadius.circular(20), borderSide: BorderSide.none),
       child: SizedBox(

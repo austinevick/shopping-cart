@@ -1,6 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shoppy/model/user.dart';
-import 'package:shoppy/services/firestore_service.dart';
 
 class AuthenticationService {
   final _auth = FirebaseAuth.instance;

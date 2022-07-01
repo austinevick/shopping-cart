@@ -2,12 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shoppy/model/product_model.dart';
 
-final productProvider = Provider((ref) => ProductProvider());
+//final productProvider = Provider((ref) => ProductProvider());
 
 class ProductProvider extends ChangeNotifier {
   List<ProductModel> carts = [];
 
-  List<ProductModel> getProduct() => products;
+  List<ProductModel> getProduct() => [];
   List<ProductModel> getCartItems() => carts;
 
   bool isAlreadyInCart(int id) =>

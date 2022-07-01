@@ -7,22 +7,46 @@ import 'authentication_service.dart';
 final firestoreProvider = Provider((ref) => FirestoreService());
 
 class FirestoreService {
-  final _db = FirebaseFirestore.instance;
-  final auth = AuthenticationService();
+  final _usersCollection = FirebaseFirestore.instance.collection('users');
+  final _productCollection = FirebaseFirestore.instance.collection('products');
+  final _cartCollection = FirebaseFirestore.instance.collection('carts');
+  final _auth = AuthenticationService();
 
-  Future<void> addProducts(ProductModel products) async {
-    await _db.collection('products').add(products.toMap());
+  Future<void> addProducts(ProductModel products) async =>
+      await _productCollection.add(products.toMap());
+
+  Future<List<ProductModel>> getProducts() async {
+    final products = await _productCollection.get();
+    return products.docs.map((e) => ProductModel.fromMap(e.data())).toList();
   }
 
-  Future<void> saveUserInfo(UserModel user) async {
-    return await _db.collection('users').doc(user.id).set(user.toMap());
+  bool isAlreadyInCart(int id) {
+    return true;
   }
+
+  Future<void> removeProductFromCart(ProductModel item) async {}
+
+//  num getTotalPriceInCart() {
+//     return carts.fold<num>(
+//         0, (previousValue, element) => previousValue + element.price!);
+//   }
+
+  Future<void> addProductsToCart(ProductModel products) async =>
+      await _cartCollection.doc(_auth.currentUser!.uid).set(products.toMap());
+
+  Future<List<ProductModel>> getProductsFromCart() async {
+    final products = await _cartCollection.get();
+    return products.docs.map((e) => ProductModel.fromMap(e.data())).toList();
+  }
+
+  Future<void> saveUserInfo(UserModel user) async =>
+      await _usersCollection.doc(user.id).set(user.toMap());
 
   Future<UserModel> getUserInfo() async {
     var userModel = UserModel();
-    final user = await _db.collection('users').get();
+    final user = await _usersCollection.get();
     final data = user.docs
-        .where((element) => element.id == auth.currentUser!.uid)
+        .where((element) => element.id == _auth.currentUser!.uid)
         .map((e) => UserModel.fromMap(e.data()))
         .toList();
     for (var item in data) {

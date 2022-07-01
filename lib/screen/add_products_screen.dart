@@ -102,6 +102,7 @@ class _AddProductsScreenState extends State<AddProductsScreen> {
                   CustomTextfield(
                     controller: priceCtr,
                     hintText: 'Price',
+                    keyboardType: TextInputType.number,
                   ),
                   const SizedBox(height: 16),
                   CustomTextfield(

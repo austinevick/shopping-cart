@@ -45,7 +45,7 @@ class _SignInFormState extends State<SignInForm> {
             id: user!.uid,
             fullname: fullname.text,
             email: signUpEmail.text,
-            isAdmin: false));
+            isAdmin: true));
         return user;
       }
     } on FirebaseAuthException catch (e) {

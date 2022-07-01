@@ -55,7 +55,7 @@ List<String> category = [
   'Shirt',
   'Shoe'
 ];
-
+/*
 List<ProductModel> products = [
   ProductModel(
       id: 0,
@@ -148,3 +148,4 @@ List<ProductModel> products = [
       price: 5,
       category: 'Shoe'),
 ];
+*/

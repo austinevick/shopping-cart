@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:shoppy/provider/product_provider.dart';
 import 'package:shoppy/screen/product_cart_screen.dart';
+import 'package:shoppy/services/firestore_service.dart';
 import 'package:shoppy/widget/custom_loader.dart';
 
 import '../constant.dart';
@@ -25,7 +26,7 @@ class _CartItemListState extends State<CartItemList> {
       setState(() => isLoading = true);
       await Future.delayed(
           const Duration(seconds: 5),
-          (() => ref.read(productProvider).removeProductFromCart(
+          (() => ref.read(firestoreProvider).removeProductFromCart(
                 widget.model!,
               )));
       ref.refresh(cartFutureProvider);
@@ -39,7 +40,7 @@ class _CartItemListState extends State<CartItemList> {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      final n = ref.read(productProvider);
+      final n = ref.read(firestoreProvider);
       return MaterialButton(
         padding: const EdgeInsets.all(0),
         onPressed: () => showMaterialModalBottomSheet(

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shoppy/model/cart_model.dart';
 import 'package:shoppy/model/product_model.dart';
-import 'package:shoppy/provider/product_provider.dart';
 import 'package:shoppy/screen/product_cart_screen.dart';
+import 'package:shoppy/services/firestore_service.dart';
 import 'package:shoppy/widget/custom_button.dart';
 import 'package:shoppy/widget/custom_loader.dart';
 
@@ -30,7 +29,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
       setState(() => isLoading = true);
       await Future.delayed(
           const Duration(seconds: 5),
-          (() => ref.read(productProvider).addProductToCart(ProductModel(
+          (() => ref.read(firestoreProvider).addProductsToCart(ProductModel(
               name: widget.item!.name,
               id: widget.item!.id,
               image: widget.item!.image,
@@ -47,7 +46,7 @@ class _ItemDetailScreenState extends State<ItemDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, _) {
-      final n = ref.read(productProvider);
+      final n = ref.read(firestoreProvider);
       return Column(
         children: [
           Stack(

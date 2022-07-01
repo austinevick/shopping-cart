@@ -35,14 +35,14 @@ class _ProductSearchScreenState extends State<ProductSearchScreen> {
                           controller: ctr,
                           autofocus: true,
                           onChanged: (val) => setState(() {
-                            if (val.isNotEmpty) {
-                              Future.delayed(const Duration(seconds: 2), () {
-                                searchedItem = products
-                                    .where((element) => element.name!
-                                        .contains(val.toLowerCase()))
-                                    .toList();
-                              });
-                            }
+                            // if (val.isNotEmpty) {
+                            //   Future.delayed(const Duration(seconds: 2), () {
+                            //     searchedItem = products
+                            //         .where((element) => element.name!
+                            //             .contains(val.toLowerCase()))
+                            //         .toList();
+                            //   });
+                            // }
                           }),
                           style: style.copyWith(
                               fontSize: 16, fontWeight: FontWeight.w700),

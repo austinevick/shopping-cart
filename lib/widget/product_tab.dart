@@ -7,7 +7,7 @@ import '../provider/product_provider.dart';
 import 'product_list.dart';
 
 final productFutureProvider = FutureProvider((ref) async {
-  return ref.read(productProvider).getProduct();
+  return ref.read(firestoreProvider).getProducts();
 });
 
 class ProductTab extends StatefulWidget {
@@ -91,24 +91,24 @@ class _ProductTabState extends State<ProductTab> {
   }
 
   ProductList buildProducts(List<ProductModel> i, WidgetRef ref) {
-    final p = ref.read(productProvider);
+    final p = ref.read(firestoreProvider);
     switch (currentIndex) {
       case 0:
         return ProductList(item: i);
-      case 1:
-        return ProductList(item: p.flowers(i));
-      case 2:
-        return ProductList(item: p.fruits(i));
-      case 3:
-        return ProductList(item: p.laptop(i));
-      case 4:
-        return ProductList(item: p.pizza(i));
-      case 5:
-        return ProductList(item: p.shoe(i));
-      case 6:
-        return ProductList(item: p.phone(i));
-      case 7:
-        return ProductList(item: p.shirts(i));
+      // case 1:
+      //   return ProductList(item: p.flowers(i));
+      // case 2:
+      //   return ProductList(item: p.fruits(i));
+      // case 3:
+      //   return ProductList(item: p.laptop(i));
+      // case 4:
+      //   return ProductList(item: p.pizza(i));
+      // case 5:
+      //   return ProductList(item: p.shoe(i));
+      // case 6:
+      //   return ProductList(item: p.phone(i));
+      // case 7:
+      //   return ProductList(item: p.shirts(i));
 
       default:
         return const ProductList();

@@ -30,7 +30,7 @@ class HomeScreen extends StatelessWidget {
         ),
         body: const ProductTab(),
         floatingActionButton: ref.watch(userProvider).when(
-            data: (data) => data.isAdmin == false
+            data: (data) => data.isAdmin == true
                 ? FloatingActionButton(
                     backgroundColor: primaryColor,
                     onPressed: () => push(context, const AddProductsScreen()),
